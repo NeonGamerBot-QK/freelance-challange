@@ -15,7 +15,7 @@ Tasks
       provided message and counts the number of words. Ensure that the message is
       properly sanitized to prevent command injection.
 
-  2.[ ] User Interaction
+2. [ ] User Interaction
 
 - - [x] User Info: Create a command !userinfo [@user] that displays detailed
         information about the mentioned user, including their username, ID, join date,
@@ -39,7 +39,7 @@ Tasks
         update the welcome message via a command !setwelcome [message].
         Store the welcome message in MySQL and fetch it when a user joins.
 
-- - [ ] Store User Data: Implement a feature to store and retrieve user data (e.g.,
+- - [x] Store User Data: Implement a feature to store and retrieve user data (e.g.,
         points, experience) in a MySQL database. Create commands !addpoints
         [@user] [points] and !getpoints [@user] to manage and display user
         points. Ensure that data is correctly stored and retrieved.

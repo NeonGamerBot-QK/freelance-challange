@@ -14,7 +14,6 @@ const files = fs.readdirSync(path.join(__dirname, '..', 'commands')).filter(f=>f
             console.error(`Failed to load command file: ${f}`)
             continue;
         }
-        console.debug(data)
         client.commands.set(data.name, data)
         console.log(`Registered command ${data.name} - ${data.description}`)
     }

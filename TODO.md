@@ -6,12 +6,12 @@ demonstrate advanced proficiency in interacting with Discord's API and managing 
 dynamics.
 Tasks
 
-1. [ ] Basic Command Handling
+1. [x] Basic Command Handling
 
 - [x] Greeting Command: Implement a command `!hello` that responds with a
       friendly greeting, including the user's display name and a random emoji from a
       predefined list.
-- [ ] Echo Command: Implement a command !echo [message] that repeats the
+- [x] Echo Command: Implement a command !echo [message] that repeats the
       provided message and counts the number of words. Ensure that the message is
       properly sanitized to prevent command injection.
 
@@ -32,7 +32,7 @@ Tasks
       removes a specified role from the mentioned user. Similar to assignrole,
       handle edge cases such as non-existent roles or insufficient permissions.
 
-  4.[ ] Data Management
+  4. [ ] Data Management
 
 - [ ] Welcome Message: Implement a feature that sends a customizable welcome
       message to users when they join the server. Allow server admins to set and
@@ -56,7 +56,7 @@ Tasks
       the database and automatically unmute the user when the time expires. Handle
       cases where the user is already muted.
 
-[ ] Additional Requirements
+6. [ ] Additional Requirements
 
 - [ ] Error Handling: Implement comprehensive error handling for all commands, providing
       clear feedback to the user when something goes wrong (e.g., missing arguments,

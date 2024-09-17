@@ -7,12 +7,20 @@ export const Embeds = {
         embed.setColor('Red')
         return embed;
     },
+    getSuccessEmbed(title:string, description:string) {
+        const embed = Embeds.getDefaultEmbed()
+        embed.setTitle(title)
+        embed.setDescription(description)
+        embed.setColor('Green')
+        return embed;
+    },
     getDefaultEmbed() {
         const embed = new EmbedBuilder()
         embed.setTimestamp()
         embed.setColor('Random')
         return embed;
     }
+    
 }
 export const Commands = {
     notFound(message: Message) {
@@ -26,7 +34,16 @@ export const Commands = {
         })
     }
 }
+export const db = {
+    getDefaultUser(id: string) { 
+        return {
+            discord_id: id,
+            points: 0
+        }
+    }
+}
 export default {
     Commands,
-    Embeds
+    Embeds, 
+    db
 }

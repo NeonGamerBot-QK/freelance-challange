@@ -15,6 +15,6 @@ client.db = prisma;
 client.commands = new Collection()
 await Promise.race([
     loadEvents(client),
-loadCommands(client)
+    loadCommands(client)
 ])
 client.login(process.env.DISCORD_TOKEN)

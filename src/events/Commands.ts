@@ -17,6 +17,7 @@ module.exports = {
       try {
           await fc.execute(message, args, client)
       } catch (e: any) {
+          console.error(e)
           Util.Commands.cmdError(e.message, message)
       }
     }

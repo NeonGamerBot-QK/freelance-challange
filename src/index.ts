@@ -20,5 +20,5 @@ client.db = prisma;
 client.commands = new Collection();
 await Promise.race([loadEvents(client), loadCommands(client)]);
 client.login(process.env.DISCORD_TOKEN);
-process.on('uncaughtException', console.error)
-process.on('unhandledRejection', console.error)
+process.on("uncaughtException", console.error);
+process.on("unhandledRejection", console.error);

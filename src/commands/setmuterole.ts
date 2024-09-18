@@ -28,23 +28,17 @@ export default {
     if (!args[0]) {
       return message.reply({
         embeds: [
-          Utils.Embeds.getErrorEmbed(
-            "No Role",
-            "Please provide role to set.",
-          ),
+          Utils.Embeds.getErrorEmbed("No Role", "Please provide role to set."),
         ],
       });
     }
     const role = message.mentions.roles.first();
-      if (!role) {
-        return message.reply({
-          embeds: [
-            Utils.Embeds.getErrorEmbed(
-              "No Role",
-              "Please provide role to set.",
-            ),
-          ],
-        });
+    if (!role) {
+      return message.reply({
+        embeds: [
+          Utils.Embeds.getErrorEmbed("No Role", "Please provide role to set."),
+        ],
+      });
     }
     let serverData: any = await client.db.server.findFirst({
       where: {

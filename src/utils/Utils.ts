@@ -45,13 +45,13 @@ export const db = {
       points: 0,
     };
   },
-  getDefaultServer(id: string) { 
+  getDefaultServer(id: string) {
     return {
       discord_id: id,
       welcomeChannel: null,
       welcomeMessage: null,
     };
-  }
+  },
 };
 export default {
   Commands,

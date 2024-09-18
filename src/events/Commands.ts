@@ -18,8 +18,10 @@ module.exports = {
     const fc = client.commands?.get(cmd);
     if (!fc) return Util.Commands.notFound(message);
     try {
+      console.log(`Executing ${fc.name} ${args.join(', ')}`)
       await fc.execute(message, args, client);
     } catch (e: any) {
+      console.warn(`Cmd failed`)
       console.error(e);
       Util.Commands.cmdError(e.message, message);
     }

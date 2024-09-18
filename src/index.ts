@@ -12,6 +12,8 @@ const client: ModifiedClient = new Client({
     IntentsBitField.Flags.MessageContent,
     IntentsBitField.Flags.Guilds,
     IntentsBitField.Flags.GuildMessages,
+    IntentsBitField.Flags.GuildScheduledEvents,
+    
   ],
   partials: [Partials.Channel],
 });

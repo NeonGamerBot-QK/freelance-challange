@@ -15,7 +15,7 @@ Tasks
       provided message and counts the number of words. Ensure that the message is
       properly sanitized to prevent command injection.
 
-2. [ ] User Interaction
+2. [x] User Interaction
 
 - - [x] User Info: Create a command !userinfo [@user] that displays detailed
         information about the mentioned user, including their username, ID, join date,
@@ -58,7 +58,7 @@ Tasks
 
 6. [ ] Additional Requirements
 
-- - [ ] Error Handling: Implement comprehensive error handling for all commands, providing
+- - [x] Error Handling: Implement comprehensive error handling for all commands, providing
         clear feedback to the user when something goes wrong (e.g., missing arguments,
         insufficient permissions).
 - - [ ] Logging: Implement logging for all commands and actions performed by the bot. Store

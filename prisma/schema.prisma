@@ -15,11 +15,13 @@ datasource db {
 
 model User {
   id         Int    @id @default(autoincrement())
-  discord_id String
+  discord_id String @unique
   points     Int
 }
 
 model Server {
-  id             Int    @id @default(autoincrement())
-  welcomeMessage String
+  id             Int     @id @default(autoincrement())
+  welcomeMessage String?
+  welcomeChannel String? @unique
+  discord_id     String  @unique
 }

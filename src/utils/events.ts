@@ -3,7 +3,8 @@ import type { EventHandler, ModifiedClient } from "../types";
 import fs from "fs";
 export default async function  loadEvents(client: ModifiedClient) {
 const files = fs.readdirSync(path.join(__dirname, '..', 'events')).filter(f=>f.endsWith('.ts'))
-//    console.log(files)
+    //    console.log(files)
+    console.log(`Loading ${files.length} events...`);
     for (const f of files) {
         let data:  EventHandler
         try {

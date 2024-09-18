@@ -2,10 +2,13 @@ import path from "path";
 import type { Command, EventHandler, ModifiedClient } from "../types";
 import fs from "fs";
 export default async function loadCommands(client: ModifiedClient) {
+
   if (!client.commands) return;
   const files = fs
     .readdirSync(path.join(__dirname, "..", "commands"))
     .filter((f) => f.endsWith(".ts"));
+    console.log(`Loading ${files.length} commands...`);
+
   //    console.log(files)
   for (const f of files) {
     let data: Command;

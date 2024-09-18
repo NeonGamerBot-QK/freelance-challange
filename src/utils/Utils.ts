@@ -20,7 +20,6 @@ export const Embeds = {
     embed.setColor("Random");
     return embed;
   },
-  
 };
 export const Commands = {
   notFound(message: Message) {
@@ -40,7 +39,7 @@ export const Commands = {
   },
   checkRolePerms(member: GuildMember, target: GuildMember) {
     return member.roles.highest.comparePositionTo(target.roles.highest) <= 0;
-  }
+  },
 };
 export const db = {
   getDefaultUser(id: string) {

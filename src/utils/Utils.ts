@@ -1,4 +1,4 @@
-import { EmbedBuilder, type Message } from "discord.js";
+import { EmbedBuilder, GuildMember, type Message } from "discord.js";
 export const Embeds = {
   getErrorEmbed(title: string, description: string) {
     const embed = Embeds.getDefaultEmbed();
@@ -20,6 +20,7 @@ export const Embeds = {
     embed.setColor("Random");
     return embed;
   },
+  
 };
 export const Commands = {
   notFound(message: Message) {
@@ -37,6 +38,9 @@ export const Commands = {
       embeds: [Embeds.getErrorEmbed("Error", error)],
     });
   },
+  checkRolePerms(member: GuildMember, target: GuildMember) {
+    return member.roles.highest.comparePositionTo(target.roles.highest) <= 0;
+  }
 };
 export const db = {
   getDefaultUser(id: string) {

@@ -46,7 +46,7 @@ Tasks
 
 5. [ ] Moderation Tools
 
-- - [ ] Kick/Ban Command: Implement commands !kick [@user] [reason] and
+- - [x] Kick/Ban Command: Implement commands !kick [@user] [reason] and
         !ban [@user] [reason] to kick or ban users from the server. The bot should
         log the actions in a designated channel, including the user, reason, and the
         moderator who issued the command. Handle cases where the bot or the

@@ -20,6 +20,7 @@
     "prisma": "^5.19.1"
   },
   "scripts": {
-    "prep:prisma": "prisma generate"
+    "prep:prisma": "prisma db push",
+    "start": "bun run ."
   }
 }

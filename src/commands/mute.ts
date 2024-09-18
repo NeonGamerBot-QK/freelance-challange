@@ -1,10 +1,11 @@
 import type { Command } from "../types";
 import Utils from "../utils/Utils";
+// TODO: the entire file
 export default {
-    name: "ban",
-    description: "ban a user",
+    name: "mute",
+    description: "mute a user",
     execute(message, args, client) {
-        if (!message.member?.permissions.has("BanMembers")) {
+        if (!message.member?.permissions.has("ManageMessages")) {
             return message.reply({
                 embeds: [Utils.Embeds.getErrorEmbed("No Permission", "You do not have permission to use this command")],
             });
@@ -47,7 +48,7 @@ export default {
                 });
             }
         }
-        member.ban().then(() => {
+        member.kick().then(() => {
             message.reply({
                 embeds: [Utils.Embeds.getSuccessEmbed("Banned", `Banned ${user.tag}`)],
             });

@@ -36,35 +36,35 @@ export default {
       });
     }
 
-      let serverData:any = await client.db.server.findFirst({
-          where: {
-              discord_id: message.guild?.id,
-          }
-      })
-      if (serverData) {
-            await client.db.server.update({
-                where: {
-                    id: serverData.id,
-                },
-                data: {
-                    welcomeMessage: args.join(" "),
-                }
-            })  
-      } else {
-          // TOOD add typings
-          let def:any = Utils.db.getDefaultServer(message.guild?.id as string);
-        def.welcomeMessage = args.join(" ");  
-        serverData = await client.db.server.create({
-          data: def,
-        });
-      }
-      message.reply({
-        embeds: [
-          Utils.Embeds.getSuccessEmbed(
-            "Welcome message Set",
-            `Welcome message is now \`${args.join(' ')}\``,
-          ),
-        ],
+    let serverData: any = await client.db.server.findFirst({
+      where: {
+        discord_id: message.guild?.id,
+      },
+    });
+    if (serverData) {
+      await client.db.server.update({
+        where: {
+          id: serverData.id,
+        },
+        data: {
+          welcomeMessage: args.join(" "),
+        },
       });
+    } else {
+      // TOOD add typings
+      let def: any = Utils.db.getDefaultServer(message.guild?.id as string);
+      def.welcomeMessage = args.join(" ");
+      serverData = await client.db.server.create({
+        data: def,
+      });
+    }
+    message.reply({
+      embeds: [
+        Utils.Embeds.getSuccessEmbed(
+          "Welcome message Set",
+          `Welcome message is now \`${args.join(" ")}\``,
+        ),
+      ],
+    });
   },
 } satisfies Command;

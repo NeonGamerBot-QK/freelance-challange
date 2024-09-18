@@ -37,43 +37,43 @@ export default {
     }
     const channel = message.mentions.channels.first() || message.channel;
 
-      let serverData:any = await client.db.server.findFirst({
-          where: {
-              discord_id: message.guild?.id,
-          }
-      })
-      if (serverData) {
-            await client.db.server.update({
-                where: {
-                    id: serverData.id,
-                },
-                data: {
-                    welcomeChannel: channel.id,
-                }
-            })  
-      } else {
-          // TOOD add typings
-        let def: any = Utils.db.getDefaultServer(message.guild?.id as string);
-        def.welcomeChannel = channel.id;
-        serverData = await client.db.server.create({
-          data: def,
-        });
-      }
-      message.reply({
-        embeds: [
-          Utils.Embeds.getSuccessEmbed(
-            "Welcome channel Set",
-            `Welcome channel is now ${channel.toString()}`,
-          ),
-        ],
+    let serverData: any = await client.db.server.findFirst({
+      where: {
+        discord_id: message.guild?.id,
+      },
+    });
+    if (serverData) {
+      await client.db.server.update({
+        where: {
+          id: serverData.id,
+        },
+        data: {
+          welcomeChannel: channel.id,
+        },
       });
+    } else {
+      // TOOD add typings
+      let def: any = Utils.db.getDefaultServer(message.guild?.id as string);
+      def.welcomeChannel = channel.id;
+      serverData = await client.db.server.create({
+        data: def,
+      });
+    }
+    message.reply({
+      embeds: [
+        Utils.Embeds.getSuccessEmbed(
+          "Welcome channel Set",
+          `Welcome channel is now ${channel.toString()}`,
+        ),
+      ],
+    });
     // let userData: any = await client.db?.user.findFirst({
     //   where: {
     //     discord_id: user.id,
     //   },
     // });
     // if (!userData) {
-     
+
     // await client.db.user.update({
     //   where: {
     //     id: userData.id,
@@ -82,6 +82,5 @@ export default {
     //     points: parseInt(args[0]),
     //   },
     // });
-  
   },
 } satisfies Command;

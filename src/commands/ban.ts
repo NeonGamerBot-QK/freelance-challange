@@ -20,10 +20,7 @@ export default {
     if (!user) {
       return message.reply({
         embeds: [
-          Utils.Embeds.getErrorEmbed(
-            "No User",
-            "Please mention a user to ban",
-          ),
+          Utils.Embeds.getErrorEmbed("No User", "Please mention a user to ban"),
         ],
       });
     }

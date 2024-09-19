@@ -54,7 +54,7 @@ export default {
       let def: Server = Utils.db.getDefaultServer(message.guild?.id as string);
       def.welcomeMessage = args.join(" ");
       serverData = await client.db.server.create({
-       //@ts-ignore
+        //@ts-ignore
         data: def,
       });
     }

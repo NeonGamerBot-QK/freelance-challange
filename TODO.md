@@ -22,19 +22,19 @@ Tasks
         roles, and whether they are a bot. Handle cases where the user is not mentioned
         or does not exist.
 
-3. [ ] Role Management
+3. [x] Role Management
 
-- - [ ] Assign Role: Implement a command !assignrole [@user] [role] that
+- - [x] Assign Role: Implement a command !assignrole [@user] [role] that
         assigns a specified role to the mentioned user. The bot should verify if the role
         exists and if the bot has the necessary permissions to assign it. Handle cases
         where the role does not exist or the bot lacks permissions.
-- - [ ] Remove Role: Implement a command !removerole [@user] [role] that
+- - [x] Remove Role: Implement a command !removerole [@user] [role] that
         removes a specified role from the mentioned user. Similar to assignrole,
         handle edge cases such as non-existent roles or insufficient permissions.
 
 4. [ ] Data Management
 
-- - [ ] Welcome Message: Implement a feature that sends a customizable welcome
+- - [x] Welcome Message: Implement a feature that sends a customizable welcome
         message to users when they join the server. Allow server admins to set and
         update the welcome message via a command !setwelcome [message].
         Store the welcome message in MySQL and fetch it when a user joins.

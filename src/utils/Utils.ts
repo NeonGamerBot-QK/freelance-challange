@@ -1,4 +1,5 @@
 import { EmbedBuilder, GuildMember, type Message } from "discord.js";
+import type { Server } from "../types";
 export const Embeds = {
   getErrorEmbed(title: string, description: string) {
     const embed = Embeds.getDefaultEmbed();
@@ -46,13 +47,14 @@ export const db = {
     return {
       discord_id: id,
       points: 0,
+      serverData: JSON.stringify({}),
     };
   },
-  getDefaultServer(id: string) {
+  getDefaultServer(id: string):Server {
     return {
       discord_id: id,
-      welcomeChannel: null,
-      welcomeMessage: null,
+      welcomeChannel: undefined,
+      welcomeMessage: undefined,
     };
   },
 };

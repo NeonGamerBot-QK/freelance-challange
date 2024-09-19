@@ -22,7 +22,7 @@ export default {
         embeds: [
           Utils.Embeds.getErrorEmbed(
             "No User",
-            "Please mention a user to kick",
+            "Please mention a user to ban",
           ),
         ],
       });
@@ -41,7 +41,7 @@ export default {
         embeds: [
           Utils.Embeds.getErrorEmbed(
             "Bad User",
-            "You cannot kick this user. Reasons\n- Your are trying to kick me\n- You are trying to kick yourself\n- You are trying to kick the server owner",
+            "You cannot ban this user. Reasons\n- Your are trying to ban me\n- You are trying to ban yourself\n- You are trying to ban the server owner",
           ),
         ],
       });
@@ -52,7 +52,7 @@ export default {
         embeds: [
           Utils.Embeds.getErrorEmbed(
             "Role Error",
-            "You cannot kick this user because they have a role higher than you",
+            "You cannot ban this user because they have a role higher than you",
           ),
         ],
       });
@@ -79,7 +79,9 @@ export default {
       }
     }
     member
-      .ban()
+      .ban({
+        reason: reason,
+      })
       .then(() => {
         message.reply({
           embeds: [

@@ -1,5 +1,5 @@
 import type { Message } from "discord.js";
-import type { Command, ModifiedClient } from "../types";
+import type { Command, ModifiedClient, Server } from "../types";
 import Utils from "../utils/Utils";
 
 export default {
@@ -52,10 +52,10 @@ export default {
         },
       });
     } else {
-      // TOOD add typings
-      let def: any = Utils.db.getDefaultServer(message.guild?.id as string);
+      let def: Server = Utils.db.getDefaultServer(message.guild?.id as string);
       def.welcomeChannel = channel.id;
       serverData = await client.db.server.create({
+       //@ts-ignore
         data: def,
       });
     }

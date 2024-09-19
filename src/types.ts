@@ -16,3 +16,11 @@ export interface ModifiedClient extends Client {
     db?: PrismaClient;
     commands?: Collection<string, Command>
 }
+export interface Server {
+    id?: number;
+    discord_id?: string;
+    muteRole?: string;
+    welcomeChannel?: string;
+    logChannel?: string;
+    welcomeMessage?: string;
+}

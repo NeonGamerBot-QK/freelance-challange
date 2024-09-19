@@ -1,5 +1,6 @@
 import type { Command } from "../types";
 import Utils from "../utils/Utils";
+
 export default {
   name: "kick",
   description: "Kick a user",

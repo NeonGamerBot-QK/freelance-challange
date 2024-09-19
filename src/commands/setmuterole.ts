@@ -58,7 +58,7 @@ export default {
       let def: Server = Utils.db.getDefaultServer(message.guild?.id as string);
       def.muteRole = role.id;
       serverData = await client.db.server.create({
-       //@ts-ignore
+        //@ts-ignore
         data: def,
       });
     }

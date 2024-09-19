@@ -50,7 +50,7 @@ export const db = {
       serverData: JSON.stringify({}),
     };
   },
-  getDefaultServer(id: string):Server {
+  getDefaultServer(id: string): Server {
     return {
       discord_id: id,
       welcomeChannel: undefined,

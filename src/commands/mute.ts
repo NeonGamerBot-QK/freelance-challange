@@ -4,20 +4,21 @@ import Utils from "../utils/Utils";
 export default {
   name: "mute",
   description: "mute a user",
-async   execute(message, args, client) {
+  async execute(message, args, client) {
     // mute cmd with time for mute and reason
-   if(!message.member?.permissions.has("ManageMessages")) {
-    return message.reply({
-      embeds: [
-        Utils.Embeds.getErrorEmbed(
-          "No Permission",
-          "You do not have permission to use this command",
-        ),
-      ],
-    });
-   }
+    if (!message.member?.permissions.has("ManageMessages")) {
+      return message.reply({
+        embeds: [
+          Utils.Embeds.getErrorEmbed(
+            "No Permission",
+            "You do not have permission to use this command",
+          ),
+        ],
+      });
+    }
     const user = message.mentions.users.first();
-    let reason = args.slice(1).length > 0 ? args.slice(1).join(" ") : "No reason provided";
+    let reason =
+      args.slice(1).length > 0 ? args.slice(1).join(" ") : "No reason provided";
     if (!user) {
       return message.reply({
         embeds: [
@@ -64,7 +65,9 @@ async   execute(message, args, client) {
       },
     });
     if (serverConfig && serverConfig.logChannel) {
-      const logChannel = message.guild?.channels.cache.get(serverConfig.logChannel);
+      const logChannel = message.guild?.channels.cache.get(
+        serverConfig.logChannel,
+      );
       if (logChannel && logChannel.isTextBased()) {
         logChannel.send({
           embeds: [
@@ -77,13 +80,13 @@ async   execute(message, args, client) {
         });
       }
     }
-    // get current user data 
+    // get current user data
     const userData = await client.db?.user.findFirst({
       where: {
         discord_id: user.id,
       },
     });
-  if (!userData) return;
+    if (!userData) return;
     // update db for user
     client.db?.user.update({
       where: {
@@ -95,18 +98,18 @@ async   execute(message, args, client) {
     });
 
     // add muted role from db
-    member.roles.add(serverConfig.muteRole).then(() => {
-      message.reply({
-        embeds: [
-          Utils.Embeds.getSuccessEmbed("Muted", `Muted ${user.tag}`),
-        ],
+    member.roles
+      .add(serverConfig.muteRole)
+      .then(() => {
+        message.reply({
+          embeds: [Utils.Embeds.getSuccessEmbed("Muted", `Muted ${user.tag}`)],
+        });
+      })
+      .catch((error: any) => {
+        message.reply({
+          embeds: [Utils.Embeds.getErrorEmbed("Error", error.message)],
+        });
       });
-    }).catch((error: any) => {
-      message.reply({
-        embeds: [Utils.Embeds.getErrorEmbed("Error", error.message)],
-      });
-    }
-    );
   },
 } satisfies Command;
 

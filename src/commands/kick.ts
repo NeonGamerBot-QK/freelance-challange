@@ -64,7 +64,7 @@ export default {
         discord_id: message.guild?.id,
       },
     });
-    console.debug(serverConfig)
+    console.debug(serverConfig);
     if (serverConfig && serverConfig.logChannel) {
       const logChannel = message.guild?.channels.cache.get(
         serverConfig.logChannel,

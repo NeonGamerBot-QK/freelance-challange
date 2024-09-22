@@ -4,6 +4,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "getpoints",
   description: "Get points of a user",
+  usage: "<@user>",
   async execute(message, args, client) {
     if (!client.db)
       return message.reply({

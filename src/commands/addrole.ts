@@ -5,6 +5,7 @@ import type { Command, ModifiedClient } from "../types";
 export default {
   name: "assignrole",
   description: "add a role to a user",
+  usage: "[@user] [@role]",
   async execute(message: Message, args: string[], client: ModifiedClient) {
     if (!client.db)
       return message.reply({

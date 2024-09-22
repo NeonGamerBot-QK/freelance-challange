@@ -4,6 +4,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "kick",
   description: "Kick a user",
+  usage: "[@user] <reason>",
   execute(message, args, client) {
     if (!message.member?.permissions.has("KickMembers")) {
       return message.reply({

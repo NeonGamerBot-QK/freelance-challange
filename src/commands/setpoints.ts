@@ -4,6 +4,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "setpoints",
   description: "set points for you or  another user",
+  usage: "[@user] [points]",
   async execute(message, args, client) {
     if (!client.db)
       return message.reply({
@@ -24,7 +25,7 @@ export default {
         ],
       });
     }
-    if (!args[0]) {
+    if (args.length < 2) {
       return message.reply({
         embeds: [
           Utils.Embeds.getErrorEmbed(

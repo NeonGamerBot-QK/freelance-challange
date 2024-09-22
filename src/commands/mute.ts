@@ -4,6 +4,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "mute",
   description: "mute a user",
+  usage: "[@user] [time] <reason>",
   async execute(message, args, client) {
     // mute cmd with time for mute and reason
     if (!message.member?.permissions.has("ManageMessages")) {

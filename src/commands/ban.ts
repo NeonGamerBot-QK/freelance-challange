@@ -3,6 +3,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "ban",
   description: "ban a user",
+  usage: "[@user] <reason>",
   execute(message, args, client) {
     if (!message.member?.permissions.has("BanMembers")) {
       return message.reply({

@@ -5,6 +5,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "setmuterole",
   description: "set mute role",
+  usage: "[@role]",
   async execute(message: Message, args: string[], client: ModifiedClient) {
     if (!client.db)
       return message.reply({

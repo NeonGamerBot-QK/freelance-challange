@@ -4,6 +4,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "removerole",
   description: "remove a role from a user",
+  usage: "[@user] [@role]",
   async execute(message, args, client) {
     if (!client.db)
       return message.reply({

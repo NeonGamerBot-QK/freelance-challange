@@ -5,6 +5,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "setlogchannel",
   description: "set log channel",
+  usage: "[#channel]",
   async execute(message: Message, args: string[], client: ModifiedClient) {
     if (!client.db)
       return message.reply({

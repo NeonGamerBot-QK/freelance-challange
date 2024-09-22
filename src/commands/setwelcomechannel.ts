@@ -5,6 +5,7 @@ import Utils from "../utils/Utils";
 export default {
   name: "setwelcomechannel",
   description: "set welcome channel",
+  usage: "[#channel]",
   async execute(message: Message, args: string[], client: ModifiedClient) {
     if (!client.db)
       return message.reply({

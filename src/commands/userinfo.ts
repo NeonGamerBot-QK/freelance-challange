@@ -28,11 +28,11 @@ export default {
       },
       {
         name: "Joined",
-        value: member.joinedAt?.toDateString(),
+        value: `${member.joinedAt?.toDateString()} <t:${Math.floor( (member.joinedAt?.getTime()||0) / 1000 )}:R>`,
       },
       {
         name: "Created",
-        value: member.user.createdAt.toDateString(),
+        value: `${member.user.createdAt.toDateString()} <t:${Math.floor( (member.user.createdAt.getTime()||0) / 1000 )}:R>`,
       },
       {
         name: "Roles",

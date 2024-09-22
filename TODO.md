@@ -56,12 +56,12 @@ Tasks
         the database and automatically unmute the user when the time expires. Handle
         cases where the user is already muted.
 
-6. [ ] Additional Requirements
+6. [x] Additional Requirements
 
 - - [x] Error Handling: Implement comprehensive error handling for all commands, providing
         clear feedback to the user when something goes wrong (e.g., missing arguments,
         insufficient permissions).
-- - [ ] Logging: Implement logging for all commands and actions performed by the bot. Store
+- - [x] Logging: Implement logging for all commands and actions performed by the bot. Store
         logs in a file or database for audit purposes.
-- - [ ] Command Permissions: Implement a permission system where only users with specific
+- - [x] Command Permissions: Implement a permission system where only users with specific
         roles (e.g., admin, moderator) can use certain commands.

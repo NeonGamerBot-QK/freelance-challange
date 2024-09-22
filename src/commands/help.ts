@@ -9,7 +9,7 @@ export default {
     const embed = Util.Embeds.getDefaultEmbed();
       embed.setTitle(`Help`);
       embed.setDescription(client.commands?.map(cmd => `**!${cmd.name}** ${cmd.usage ? `\`${cmd.usage}\``: ""} - ${cmd.description}`).join("\n"));
-      embed.setFooter({ text: `Total Commands: ${client.commands?.size} - Run !help [command] for more info`});
+      embed.setFooter({ text: `Total Commands: ${client.commands?.size}`});
     message.reply({ embeds: [embed] });
   },
 } satisfies Command;

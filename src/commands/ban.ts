@@ -4,7 +4,7 @@ export default {
   name: "ban",
   description: "ban a user",
   usage: "[@user] <reason>",
-  execute(message, args, client) {
+  async execute(message, args, client) {
     if (!message.member?.permissions.has("BanMembers")) {
       return message.reply({
         embeds: [
@@ -55,7 +55,7 @@ export default {
         ],
       });
     }
-    const serverConfig: any = client.db?.server.findFirst({
+    const serverConfig: any = await client.db?.server.findFirst({
       where: {
         discord_id: message.guild?.id,
       },

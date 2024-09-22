@@ -5,7 +5,7 @@ export default {
   name: "kick",
   description: "Kick a user",
   usage: "[@user] <reason>",
-  execute(message, args, client) {
+  async execute(message, args, client) {
     if (!message.member?.permissions.has("KickMembers")) {
       return message.reply({
         embeds: [
@@ -59,11 +59,12 @@ export default {
         ],
       });
     }
-    const serverConfig: any = client.db?.server.findFirst({
+    const serverConfig: any = await client.db?.server.findFirst({
       where: {
         discord_id: message.guild?.id,
       },
     });
+    console.debug(serverConfig)
     if (serverConfig && serverConfig.logChannel) {
       const logChannel = message.guild?.channels.cache.get(
         serverConfig.logChannel,
@@ -81,7 +82,7 @@ export default {
       }
     }
     member
-      .kick()
+      .kick(reason)
       .then(() => {
         message.reply({
           embeds: [

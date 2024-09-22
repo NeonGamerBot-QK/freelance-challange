@@ -60,7 +60,7 @@ export default {
         ],
       });
     }
-    const serverConfig: any = client.db?.server.findFirst({
+    const serverConfig: any = await client.db?.server.findFirst({
       where: {
         discord_id: message.guild?.id,
       },

@@ -21,6 +21,7 @@
   },
   "scripts": {
     "prep:prisma": "prisma db push",
-    "start": "bun run ."
+    "start": "bun run .",
+    "dev": "bun run --hot ."
   }
 }

@@ -175,3 +175,5 @@ dist
 .DS_Store
 dev.db
 dev.db-journal
+*.bak
+log-*.txt

@@ -1,6 +1,7 @@
 // Main file
 
 import "dotenv/config";
+import "./utils/logging";
 import { PrismaClient } from "@prisma/client";
 import { Client, Collection, IntentsBitField, Partials } from "discord.js";
 import type { ModifiedClient } from "./types";

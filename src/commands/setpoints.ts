@@ -56,6 +56,7 @@ export default {
       data: {
         points: parseInt(args[0]),
       },
+      // points: parseInt(args[0]),
     });
     message.reply({
       embeds: [

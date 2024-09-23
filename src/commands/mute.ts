@@ -8,7 +8,7 @@ export default {
   description: "mute a user",
   usage: "[@user] [time] <reason>",
   async execute(message, args, client) {
-    if(!message.guild) return;
+    if (!message.guild) return;
     // mute cmd with time for mute and reason
     if (!message.member?.permissions.has("ManageMessages")) {
       return message.reply({
@@ -22,7 +22,8 @@ export default {
     }
     const user = message.mentions.users.first();
     let duration = args[1];
-    let reason = args.slice(2).length > 0 ? args.slice(2).join(" ") : "No reason provided";
+    let reason =
+      args.slice(2).length > 0 ? args.slice(2).join(" ") : "No reason provided";
     if (!user) {
       return message.reply({
         embeds: [
@@ -141,8 +142,7 @@ export default {
               mutedUntil: null,
             },
           });
-        }
-        , ms(duration));
+        }, ms(duration));
       })
       .catch((error: any) => {
         message.reply({

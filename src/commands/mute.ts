@@ -1,8 +1,6 @@
 import type { Command } from "../types";
 import Utils from "../utils/Utils";
 import ms from "ms";
-// TODO: test the file in discord
-// TODO: the entire file 75%
 export default {
   name: "mute",
   description: "mute a user",
@@ -90,6 +88,16 @@ export default {
         discord_id: message.guild?.id,
       },
     });
+    if (!serverConfig.muteRole) {
+      return message.reply({
+        embeds: [
+          Utils.Embeds.getErrorEmbed(
+            "No Mute Role",
+            "Please set a mute role using the `!setmuterole` command",
+          ),
+        ],
+      });
+    }
     if (serverConfig && serverConfig.logChannel) {
       const logChannel = message.guild?.channels.cache.get(
         serverConfig.logChannel,

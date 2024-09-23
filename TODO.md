@@ -32,7 +32,7 @@ Tasks
         removes a specified role from the mentioned user. Similar to assignrole,
         handle edge cases such as non-existent roles or insufficient permissions.
 
-4. [ ] Data Management
+4. [x] Data Management
 
 - - [x] Welcome Message: Implement a feature that sends a customizable welcome
         message to users when they join the server. Allow server admins to set and
@@ -44,14 +44,14 @@ Tasks
         [@user] [points] and !getpoints [@user] to manage and display user
         points. Ensure that data is correctly stored and retrieved.
 
-5. [ ] Moderation Tools
+5. [x] Moderation Tools
 
 - - [x] Kick/Ban Command: Implement commands !kick [@user] [reason] and
         !ban [@user] [reason] to kick or ban users from the server. The bot should
         log the actions in a designated channel, including the user, reason, and the
         moderator who issued the command. Handle cases where the bot or the
         moderator lacks permissions.
-- - [ ] Mute Command: Implement a command !mute [@user] [duration]
+- - [x] Mute Command: Implement a command !mute [@user] [duration]
         [reason] that mutes a user for a specified duration. Store the mute end time in
         the database and automatically unmute the user when the time expires. Handle
         cases where the user is already muted.

@@ -14,10 +14,11 @@ datasource db {
 }
 
 model User {
-  id         Int    @id @default(autoincrement())
-  discord_id String @unique
+  id         Int      @id @default(autoincrement())
+  discord_id String   @unique
   points     Int
-  serverData String
+  muted      Boolean?
+  mutedUntil Int?
 }
 
 model Server {

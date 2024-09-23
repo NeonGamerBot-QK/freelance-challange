@@ -1,11 +1,14 @@
 import type { Command } from "../types";
 import Utils from "../utils/Utils";
-// TODO: the entire file 25%
+import ms from "ms";
+// TODO: test the file in discord
+// TODO: the entire file 75%
 export default {
   name: "mute",
   description: "mute a user",
   usage: "[@user] [time] <reason>",
   async execute(message, args, client) {
+    if(!message.guild) return;
     // mute cmd with time for mute and reason
     if (!message.member?.permissions.has("ManageMessages")) {
       return message.reply({
@@ -18,8 +21,8 @@ export default {
       });
     }
     const user = message.mentions.users.first();
-    let reason =
-      args.slice(1).length > 0 ? args.slice(1).join(" ") : "No reason provided";
+    let duration = args[1];
+    let reason = args.slice(2).length > 0 ? args.slice(2).join(" ") : "No reason provided";
     if (!user) {
       return message.reply({
         embeds: [
@@ -30,6 +33,27 @@ export default {
         ],
       });
     }
+    if (!duration) {
+      return message.reply({
+        embeds: [
+          Utils.Embeds.getErrorEmbed(
+            "No Duration",
+            "Please provide a duration for the mute",
+          ),
+        ],
+      });
+    }
+    if (!ms(duration)) {
+      return message.reply({
+        embeds: [
+          Utils.Embeds.getErrorEmbed(
+            "Invalid Duration",
+            "Please provide a valid duration for the mute",
+          ),
+        ],
+      });
+    }
+
     const member = message.guild?.members.cache.get(user.id);
     if (!member) {
       return message.reply({
@@ -82,19 +106,20 @@ export default {
       }
     }
     // get current user data
-    const userData = await client.db?.user.findFirst({
-      where: {
-        discord_id: user.id,
-      },
-    });
-    if (!userData) return;
+    // const userData = await client.db?.user.findFirst({
+    //   where: {
+    //     discord_id: user.id,
+    //   },
+    // });
+    // if (!userData) return;
     // update db for user
     client.db?.user.update({
       where: {
         discord_id: user.id,
       },
       data: {
-        serverData: JSON.stringify({ ...JSON.parse(userData?.serverData) }),
+        muted: true,
+        mutedUntil: Date.now() + ms(duration),
       },
     });
 
@@ -105,6 +130,19 @@ export default {
         message.reply({
           embeds: [Utils.Embeds.getSuccessEmbed("Muted", `Muted ${user.tag}`)],
         });
+        setTimeout(() => {
+          member.roles.remove(serverConfig.muteRole);
+          client.db?.user.update({
+            where: {
+              discord_id: user.id,
+            },
+            data: {
+              muted: false,
+              mutedUntil: null,
+            },
+          });
+        }
+        , ms(duration));
       })
       .catch((error: any) => {
         message.reply({

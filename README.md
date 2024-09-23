@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/018eed1d-6093-4f51-9fca-7863b7a1ac97/project/1fdae970-e310-46bb-aaf5-d54f85a5fe63.svg)](https://wakatime.com/badge/user/018eed1d-6093-4f51-9fca-7863b7a1ac97/project/1fdae970-e310-46bb-aaf5-d54f85a5fe63)
+
 # freelance-challange
 
 To install dependencies:
@@ -12,4 +14,5 @@ To run:
 bun run src/index.ts
 ```
 
-This project was created using `bun init` in bun v1.1.27. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Made with bun.
+See rubric in [TODO.md](./TODO.md) for more details.
